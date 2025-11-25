@@ -87,3 +87,19 @@ for (const el of score) {
     scoredPlayer[el] ? scoredPlayer[el]+=1:scoredPlayer[el]=1
 }
 console.log(scoredPlayer)
+
+// WORKING WITH STRING
+const airline = 'TAP Air Portugal'
+const plane = 'A320'
+ 
+
+function convertToCamelCase (arr){
+  let newVaribale=''
+for (const el of arr) {
+  newVaribale=el.split('_')
+  console.log(newVaribale.length)
+}
+}
+const arr=['yahia_hamed','nancy_hamed',"khaled_othman"]
+
+convertToCamelCase(arr)
