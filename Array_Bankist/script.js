@@ -408,6 +408,7 @@ const dogsByOwners = Object.groupBy(dogs,dog => dog.owners.length);
 console.log(dogsByOwners);
 // ===============================================
 
-
-const result = 0 == -null;
-console.log(result);
+console.log(dogs);
+const dogsSortedByRecFood = dogs.toSorted((a,b) => a.recFood - b.recFood);
+console.log(dogs)
+console.log(dogsSortedByRecFood);

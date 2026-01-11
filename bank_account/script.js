@@ -63,9 +63,10 @@ const inputClosePin = document.querySelector(".form__input--pin");
 
 // Handel Movemrents
 
-const displayMovments = function (acc) {
+const displayMovments = function (acc, sort = false) {
   containerMovements.innerHTML = "";
-  acc.movements.forEach((mov, i) => {
+  const movs =sort ? acc.movements.toSorted((a,b)=> a - b) : acc.movements
+  movs.forEach((mov, i) => {
     const type = mov > 0 ? "deposit" : "withdrawal";
     const html = `
      <div class="movements__row">
@@ -195,6 +196,14 @@ btnLoan.addEventListener("click", (e) => {
     inputLoanAmount.blur();
   }
 });
+
+// handel sort
+let sorted = false;
+btnSort.addEventListener('click',(event)=>{
+  event.preventDefault();
+  displayMovments(currentAccount,!sorted);
+  sorted = !sorted;
+})
 
 
 
