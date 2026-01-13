@@ -324,6 +324,90 @@ const calcAverageHumanAgeArrowChaning = (ages) =>
 console.log(calcAverageHumanAgeArrowChaning([5, 2, 4, 1, 15, 8, 3]));
 console.log(calcAverageHumanAgeArrowChaning([16, 6, 10, 5, 6, 1, 4]));
 
+
+
+
+/*
+This time, Julia and Kate are studying the activity levels of different dog breeds.
+
+YOUR TASKS:
+1. Store the the average weight of a "Husky" in a variable "huskyWeight"
+2. Find the name of the only breed that likes both "running" and "fetch" ("dogBothActivities" variable)
+3. Create an array "allActivities" of all the activities of all the dog breeds
+4. Create an array "uniqueActivities" that contains only the unique activities (no activity repetitions). HINT: Use a technique with a special data structure that we studied a few sections ago.
+5. Many dog breeds like to swim. What other activities do these dogs like? Store all the OTHER activities these breeds like to do, in a unique array called "swimmingAdjacent".
+6. Do all the breeds have an average weight of 10kg or more? Log to the console whether "true" or "false".
+7. Are there any breeds that are "active"? "Active" means that the dog has 3 or more activities. Log to the console whether "true" or "false".
+
+BONUS: What's the average weight of the heaviest breed that likes to fetch? HINT: Use the "Math.max" method along with the ... operator.
+
+TEST DATA:
+*/
+
+
+const breeds = [
+  {
+    breed: 'German Shepherd',
+    averageWeight: 32,
+    activities: ['fetch', 'swimming'],
+  },
+  {
+    breed: 'Dalmatian',
+    averageWeight: 24,
+    activities: ['running', 'fetch', 'agility'],
+  },
+  {
+    breed: 'Labrador',
+    averageWeight: 28,
+    activities: ['swimming', 'fetch'],
+  },
+  {
+    breed: 'Beagle',
+    averageWeight: 12,
+    activities: ['digging', 'fetch'],
+  },
+  {
+    breed: 'Husky',
+    averageWeight: 26,
+    activities: ['running', 'agility', 'swimming'],
+  },
+  {
+    breed: 'Bulldog',
+    averageWeight: 36,
+    activities: ['sleeping'],
+  },
+  {
+    breed: 'Poodle',
+    averageWeight: 18,
+    activities: ['agility', 'fetch'],
+  },
+];
+
+const huskyWeight = breeds.find(bread => bread.breed === 'Husky').averageWeight;
+console.log(huskyWeight);
+const dogBothActivities = breeds.find(breed =>breed.activities.includes('running') && breed.activities.includes('fetch'));
+console.log(dogBothActivities);
+
+const allActivities = breeds.flatMap( breed => breed.activities);
+console.log(allActivities);
+
+const uniqueActivities = [...new Set(allActivities)];
+console.log(uniqueActivities);
+
+const swimmingAdjacent = [...new Set(breeds.filter(breed => breed.activities.includes('swimming')).flatMap(breed => breed.activities))]
+console.log(swimmingAdjacent);
+
+const allAbove10kg = breeds.every(breed => breed.averageWeight >= 10) ;
+console.log(allAbove10kg);
+
+const anyActiveBreed = breeds.some(breed => breed.activities.length >= 3);
+console.log(anyActiveBreed);
+
+const heaviest =breeds.map(breed => breed.averageWeight).find((weight, i, arr) => weight === Math.max(...arr));
+console.log(heaviest);
+
+
+
 // Coding Challenge #5
 
 /* 
@@ -412,3 +496,36 @@ console.log(dogs);
 const dogsSortedByRecFood = dogs.toSorted((a,b) => a.recFood - b.recFood);
 console.log(dogs)
 console.log(dogsSortedByRecFood);
+
+ 
+
+
+// number date init timer
+
+console.log(3 === 3.0);
+console.log(3.12);
+console.log(.2 + 0.1)
+console.log(0.1 + 0.2 === 0.3);
+console.log(0.2 + 0.2 === 0.4); 
+console.log(Number('23'));
+console.log(+'23');
+console.log(Number.parseInt('300px',10));
+console.log(Number.parseInt('e524x',2));
+console.log(Number.parseInt('2.5rem'));
+console.log(Number.parseFloat('2.5rem'));
+
+console.log(Number.isNaN(20));
+console.log(Number.isNaN('20'));
+console.log(Number.isNaN(+'20X'));
+console.log(Number.isNaN(23 / 0));
+console.log(Number.isFinite(20));
+console.log(Number.isFinite('20'));
+console.log(Number.isFinite(+'20X'));
+console.log(Number.isFinite(23 / 0));
+
+// math and rounding
+ console.log(5 % 5)
+
+//  numeric 
+
+console.log(30303003000);
