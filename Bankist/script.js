@@ -3,6 +3,9 @@ const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.btn--close-modal');
 const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
 const header = document.querySelector('.header');
+const tabs = document.querySelectorAll('.operations__tab')
+const tabsContainer = document.querySelector('.operations__tab-container')
+const tabsContent = document.querySelectorAll('.operations__content')
 
 const openModal = function (e) {
   e.preventDefault();
@@ -26,8 +29,31 @@ document.addEventListener('keydown', function (e) {
   }
 });
 
+// page navigation
+document.querySelector('.nav__links').addEventListener('click', function (e) {
+  e.preventDefault();
+  if (e.target.classList.contains('nav__link')) {
+    const id = e.target.getAttribute('href');
+
+    if (id && id.startsWith('#') && id.length > 1) {
+      const select = document.querySelector(id);
+      if (!select) return;
+      select.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+});
+
+tabsContainer.addEventListener('click',function (e) {
+  const clecked = e.target.closest('.operations__tab')
+  if(!clecked) return
+  tabs.forEach(t=>t.classList.remove('operations__tab--active'))
+  tabsContent.forEach(c=>c.classList.remove('operations__content--active'))
+  clecked.classList.add('operations__tab--active')  
+  document.querySelector(`.operations__content--${clecked.dataset.tab}`).classList.add('operations__content--active')
+})
+
 // console.log(document.head);
-// console.log(document.body);
+// console.log(document.body);    
 
 // const message = document.createElement('div');
 // message.classList.add('cookie-message');
@@ -62,19 +88,11 @@ document.addEventListener('keydown', function (e) {
 // -------------------------------
 
 // implementing smoth scrollings
-const btnScrollTo =document.querySelector('.btn--scroll-to');
+const btnScrollTo = document.querySelector('.btn--scroll-to');
 const section1 = document.querySelector('#section--1');
-btnScrollTo.addEventListener('click',function (e) {
-  // console.log('current scroll x/y',pageXOffset,pageYOffset)
-  // console.log('current scroll x/y',document.documentElement.clientHeight,document.documentElement.clientWidth)
-  // const s1scored = section1.getBoundingClientRect()
-  // window.scrollTo({
-  //   left : s1scored.left + window.pageXOffset,
-  //   top : s1scored.top + window.pageYOffset,
-  //   behavior:'smooth',
-  // });
-  section1.scrollIntoView({behavior:'smooth'})
-})
+btnScrollTo.addEventListener('click', function (e) {
+  section1.scrollIntoView({ behavior: 'smooth' });
+});
 
 // type events
 
