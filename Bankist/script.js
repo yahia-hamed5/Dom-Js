@@ -6,6 +6,7 @@ const header = document.querySelector('.header');
 const tabs = document.querySelectorAll('.operations__tab')
 const tabsContainer = document.querySelector('.operations__tab-container')
 const tabsContent = document.querySelectorAll('.operations__content')
+const nav = document.querySelector('.nav')
 
 const openModal = function (e) {
   e.preventDefault();
@@ -52,6 +53,29 @@ tabsContainer.addEventListener('click',function (e) {
   document.querySelector(`.operations__content--${clecked.dataset.tab}`).classList.add('operations__content--active')
 })
 
+const handelHover = function (e) {
+   if (e.target.classList.contains('nav__link')) {
+   const link = e.target
+   const siblings =link.closest('.nav').querySelectorAll('.nav__link') 
+   const logo = link.closest('.nav').querySelector('img')
+   siblings.forEach(el => {if (el !== link) el.style.opacity = this} )
+    logo.style.opacity= this
+ }
+}
+
+nav.addEventListener('mouseover',handelHover.bind(.5))
+nav.addEventListener('mouseout',handelHover.bind(1))
+const obsCallback = function (entries,observer) {
+  entries.forEach(entry =>{
+    console.log(entry)
+  });
+};
+const obsOptions={
+  root: null,
+  threshold:.1
+}
+const observer = new IntersectionObserver(obsCallback,obsOptions)
+observer.observe(document.querySelector('#section--2'))
 // console.log(document.head);
 // console.log(document.body);    
 
