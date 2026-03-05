@@ -4,9 +4,10 @@ console.log('The first OOP')
 => How can i Create a new Class
  #there are some Rules 
  1=>abstraction --- التجريد
- 1=>Encapsulation ------ التغليف
- 1=>Inheritance --- الوراثه
- 1=>Polymorphism ---- تعدد الاشكال
+ 2=>Encapsulation ------ التغليف
+ 3=>Inheritance --- الوراثه
+ 4=>Polymorphism ---- تعدد الاشكال
 */
 
-// 1) Abstraction 
+//  how can i create the class
+// ====> 1- using the function constructor
